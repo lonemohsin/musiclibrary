@@ -13,14 +13,18 @@ function App() {
     { title: "Album 3" },
   ]);
 
+  const [active, setActive] = useState({})
+
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home albums={albums} />} />
+          {/* <Route path="/" element={<Home albums={albums} setActive={setActive} active={active} />} /> */}
+          <Route path="/" element={<Home albums={albums} active={active} />} />
           <Route path="/create" element={<Create setAlbums={setAlbums} />} />
           <Route path="/album" element={<Album />} />
         </Routes>
+        {/* <Album album={active} /> */}
       </BrowserRouter>
     </div>
   );

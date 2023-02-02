@@ -1,14 +1,18 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-function Home({ albums }) {
+function Home({ albums, setActive, active }) {
   const nav = useNavigate();
   return (
     <div className="home">
       <h2 className="homeTitle">Music Library</h2>
       <div className="albums">
         {albums.map((album) => (
-          <div className="album">{album.title}</div>
+          <div className="album" onClick={() => {
+            // setActive(album);
+            nav("/album");
+          }
+          }>{album.title}</div>
         ))}
         <button className="addButton"
           onClick={() => {
@@ -18,7 +22,7 @@ function Home({ albums }) {
           Add new Album
         </button>
       </div>
-    </div>
+    </div >
   );
 }
 
