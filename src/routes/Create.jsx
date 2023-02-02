@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Create = ({ setAlbums }) => {
-  const [name, setName] = useState("");
+  const [album, setAlbum] = useState("");
+  const [song, setSong] = useState("");
   const [artist, setArtist] = useState("");
   const [genre, setGenre] = useState("");
   const [image, setImage] = useState("");
@@ -11,12 +12,20 @@ const Create = ({ setAlbums }) => {
   return (
     <div className="newAlbum">
       <h3 className="albumTitle">New Album</h3>
+
       <input className="albumText"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
+        value={album}
+        onChange={(e) => setAlbum(e.target.value)}
         type="text"
         placeholder="Album name"
         name="albumName"
+      />
+      <input className="albumText"
+        value={song}
+        onChange={(e) => setSong(e.target.value)}
+        type="text"
+        placeholder="Song name"
+        name="songName"
       />
       <input className="albumText"
         value={artist}
@@ -42,7 +51,7 @@ const Create = ({ setAlbums }) => {
       <button
         type="submit"
         onClick={() => {
-          setAlbums((pre) => [...pre, { title: name }]);
+          setAlbums((pre) => [...pre, { title: album, song, artist, genre, image }]); 
           nav("/");
         }}
       >
