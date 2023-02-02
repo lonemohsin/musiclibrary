@@ -9,30 +9,30 @@ const Create = ({ setAlbums }) => {
 
   const nav = useNavigate();
   return (
-    <div className="new-album">
-      <h3>New Album</h3>
-      <input
+    <div className="newAlbum">
+      <h3 className="albumTitle">New Album</h3>
+      <input className="albumText"
         value={name}
         onChange={(e) => setName(e.target.value)}
         type="text"
         placeholder="Album name"
         name="albumName"
       />
-      <input
+      <input className="albumText"
         value={artist}
         onChange={(e) => setArtist(e.target.value)}
         type="text"
         placeholder="Artist name"
         name="songName"
       />
-      <input
+      <input className="albumText"
         value={genre}
         type="text"
         onChange={(e) => setGenre(e.target.value)}
         placeholder="Genre"
         name="genre"
       />
-      <input
+      <input className="albumText"
         type="text"
         onChange={(e) => setImage(e.target.value)}
         placeholder="Logo URL"

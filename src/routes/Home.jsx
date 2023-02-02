@@ -1,27 +1,23 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-// const handleAdd = () => {
-//   setAlbums((prev) => {
-//     return [...prev, { title: newAlbum }];
-//   });
-// };
-
 function Home({ albums }) {
   const nav = useNavigate();
   return (
-    <div>
-      <h2>Music Library</h2>
-      {albums.map((album) => (
-        <p>{album.title}</p>
-      ))}
-      <button
-        onClick={() => {
-          nav("/create");
-        }}
-      >
-        Add new Album
-      </button>
+    <div className="home">
+      <h2 className="homeTitle">Music Library</h2>
+      <div className="albums">
+        {albums.map((album) => (
+          <div className="album">{album.title}</div>
+        ))}
+        <button className="addButton"
+          onClick={() => {
+            nav("/create");
+          }}
+        >
+          Add new Album
+        </button>
+      </div>
     </div>
   );
 }
